@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Planet{
+public class Planet extends SpaceBody{
 
     Random rand = new Random();
 
@@ -8,18 +8,17 @@ public class Planet{
     private int distance;
     private int daysPassed = 0;
     private int daysToOrbitSun;
-    private int diameter;
-    private String col;
+
 
 
     public Planet(SolarSystem solarSys, int distanceFromSun, int orbitLength, int diameter, String colour){
-        this.diameter = diameter;
+        setDiameter(diameter);
         daysToOrbitSun = orbitLength;
         daysPassed = rand.nextInt(daysToOrbitSun);
-        col = colour;
+        setColour(colour);
         distance = distanceFromSun;
 
-        solarSys.drawSolarObject(distanceFromSun, daysPassed, diameter, colour);
+        solarSys.drawSolarObject(distanceFromSun, daysPassed, getDiameter(), getColour());
     }
 
     boolean didPlanetOrbit()
@@ -40,6 +39,6 @@ public class Planet{
         double daysPassedDbl = daysPassed;
         double daysToOrbitSunDbl = daysToOrbitSun;
 
-        solarSys.drawSolarObject(distance, daysPassedDbl / daysToOrbitSunDbl * 360, diameter, col);
+        solarSys.drawSolarObject(distance, daysPassedDbl / daysToOrbitSunDbl * 360, getDiameter(), getColour());
     }
 }
