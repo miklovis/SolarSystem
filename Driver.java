@@ -5,7 +5,8 @@ public class Driver {
     
     public static void main(String[] args)
     {
-        ss = new SolarSystem(500, 500);
+        ss = new SolarSystem(1000, 1000);
+        int j = 10;
         
         while(true){
             for(int i = 0; i < 360; i++){
@@ -22,6 +23,6 @@ public class Driver {
     }
 
     public static void drawMoon(int angle){
-        ss.drawSolarObjectAbout(moonToEarth, angle, 5, "WHITE", moonToEarth, angle);
+        ss.drawSolarObjectAbout(earthToSun, angle, 2, "WHITE", 10, angle * 4);
     }
 }
