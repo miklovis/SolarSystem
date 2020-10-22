@@ -1,5 +1,3 @@
-import sun.jvm.hotspot.gc.shared.Space;
-
 public class Sun extends SpaceBody{
 
 

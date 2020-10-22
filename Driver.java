@@ -1,16 +1,16 @@
 public class Driver {
     static SolarSystem ss;
     static Planet[] systemPlanets = new Planet[8];
-    //static Sun sun = new Sun(ss, 50, "YELLOw");
+    static Sun sun;
     
     public static void main(String[] args)
     {
         ss = new SolarSystem(1000, 1000);      
         createPlanets();
+        sun = new Sun(ss, 50, "YELLOW");
 
         while(true){
-            //sun.updateSun(ss);
-            ss.drawSolarObject(0, 0, 50, "YELLOW");
+            sun.updateSun(ss);
             for(int i = 0; i < 8; i++){
                 systemPlanets[i].dayPassed(ss);
             }
