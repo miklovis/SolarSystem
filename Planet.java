@@ -5,10 +5,9 @@ public class Planet extends SpaceBody{
     Random rand = new Random();
 
 
-    private int distance;
+    private double distance;
     private int daysPassed = 0;
     private int daysToOrbitSun;
-    private double angle;
 
 
 
@@ -20,20 +19,10 @@ public class Planet extends SpaceBody{
         daysToOrbitSun = orbitLength;
         daysPassed = rand.nextInt(daysToOrbitSun);
         distance = distanceFromSun;
-        angle = daysPassed / daysToOrbitSun * 360;
-        
+        setAngle(daysPassed / daysToOrbitSun * 360);
 
-        solarSys.drawSolarObject(distanceFromSun, angle, getDiameter(), getColour());
-    }
 
-    public void setDistance(int distance)
-    {
-        this.distance = distance;
-    }
-
-    public int getDistance()
-    {
-        return distance;
+        solarSys.drawSolarObject(distanceFromSun, getAngle(), getDiameter(), getColour());
     }
 
     public void setDaysPassed(int daysPassed)
@@ -64,7 +53,7 @@ public class Planet extends SpaceBody{
         else return false;
     }
 
-    public void dayPassed(SolarSystem solarSys)
+    public void move(SolarSystem solarSys)
     {
         if(didPlanetOrbit()){
             daysPassed = 0;
@@ -73,19 +62,10 @@ public class Planet extends SpaceBody{
 
         double daysPassedDbl = daysPassed;
         double daysToOrbitSunDbl = daysToOrbitSun;
-        angle = daysPassedDbl / daysToOrbitSunDbl * 360;
+        setAngle(daysPassedDbl / daysToOrbitSunDbl * 360);
 
 
-        solarSys.drawSolarObject(distance, angle, getDiameter(), getColour());
+        solarSys.drawSolarObject(distance, getAngle(), getDiameter(), getColour());
     }
 
-    public double getAngle()
-    {
-        return angle;
-    }
-
-    public void setAngle(double angle)
-    {
-        this.angle = angle;
-    }
 }

@@ -21,15 +21,17 @@ public class Driver {
         createMoons();
 
         sun = new Sun(ss, 50, "YELLOW");
+
         while(true){
             sun.updateSun(ss);
             
             for(int i = 0; i < 8; i++){
-                systemPlanets[i].dayPassed(ss);
+                systemPlanets[i].move(ss);
             }
             for(int i = 0; i < 176; i++){
-                systemMoons[i].dayPassed(ss, systemPlanets);
+                systemMoons[i].move(ss, systemPlanets);
             }
+
             ss.finishedDrawing();
         }
     }

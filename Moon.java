@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Moon extends SpaceBody{
-    double distance, centreOfRotationDistance, angle, maxAngle;
+    double centreOfRotationDistance, maxAngle;
     int planetIndex;
 
     Random rand = new Random();
@@ -13,32 +13,32 @@ public class Moon extends SpaceBody{
 
 
         this.planetIndex = planetIndex;
-        this.distance = distance;
+        setDistance(distance);
+
         if(planetIndex < 4){
             this.centreOfRotationDistance = planets[planetIndex].getDiameter() / 2 + 2;
         }
         else this.centreOfRotationDistance = planets[planetIndex].getDiameter() / 2 + 5;
+
         maxAngle = planets[planetIndex].getDiameter() * 4;
+        setAngle(rand.nextInt((int)maxAngle));
 
-        angle = rand.nextInt((int)maxAngle);
-
-
-        solarSys.drawSolarObjectAbout(distance, planets[planetIndex].getAngle(), getDiameter(), getColour(), centreOfRotationDistance, angle / maxAngle * 360);
+        solarSys.drawSolarObjectAbout(getDistance(), planets[planetIndex].getAngle(), getDiameter(), getColour(), centreOfRotationDistance, getAngle() / maxAngle * 360);
 
         checkAngle();
     }
 
-    public void dayPassed(SolarSystem solarSys, Planet[] planets)
+    public void move(SolarSystem solarSys, Planet[] planets)
     {
-        solarSys.drawSolarObjectAbout(distance, planets[planetIndex].getAngle(), getDiameter(), getColour(), centreOfRotationDistance, angle / maxAngle * 360);
+        solarSys.drawSolarObjectAbout(getDistance(), planets[planetIndex].getAngle(), getDiameter(), getColour(), centreOfRotationDistance, getAngle() / maxAngle * 360);
 
         checkAngle();
     }
 
     public void checkAngle(){
-        if(angle != maxAngle){
-            angle++;
+        if(getAngle() != maxAngle){
+            incrementAngle();
         }
-        else angle = 0;
+        else setAngle(0);
     }
 }
