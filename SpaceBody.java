@@ -1,13 +1,13 @@
 public class SpaceBody {
-    private int diameter;
+    private double diameter;
     private String colour;
 
-    public int getDiameter()
+    public double getDiameter()
     {
         return diameter;
     }
 
-    public void setDiameter(int diameterToSet)
+    public void setDiameter(double diameterToSet)
     {
         diameter = diameterToSet;
     }

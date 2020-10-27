@@ -8,20 +8,55 @@ public class Planet extends SpaceBody{
     private int distance;
     private int daysPassed = 0;
     private int daysToOrbitSun;
+    private double angle;
 
 
 
     public Planet(SolarSystem solarSys, int distanceFromSun, int orbitLength, int diameter, String colour){
         setDiameter(diameter);
+        setColour(colour);
+
+
         daysToOrbitSun = orbitLength;
         daysPassed = rand.nextInt(daysToOrbitSun);
-        setColour(colour);
         distance = distanceFromSun;
+        angle = daysPassed / daysToOrbitSun * 360;
+        
 
-        solarSys.drawSolarObject(distanceFromSun, daysPassed, getDiameter(), getColour());
+        solarSys.drawSolarObject(distanceFromSun, angle, getDiameter(), getColour());
     }
 
-    boolean didPlanetOrbit()
+    public void setDistance(int distance)
+    {
+        this.distance = distance;
+    }
+
+    public int getDistance()
+    {
+        return distance;
+    }
+
+    public void setDaysPassed(int daysPassed)
+    {
+        this.daysPassed = daysPassed;
+    }
+
+    public int getDaysPassed()
+    {
+        return daysPassed;
+    }
+
+    public void setDaysToOrbitSun(int daysToOrbitSun)
+    {
+        this.daysToOrbitSun = daysToOrbitSun;
+    }
+
+    public int getDaysToOrbitSun()
+    {
+        return daysToOrbitSun;
+    }
+
+    public boolean didPlanetOrbit()
     {
         if(daysToOrbitSun == daysPassed){
             return true;
@@ -29,7 +64,7 @@ public class Planet extends SpaceBody{
         else return false;
     }
 
-    void dayPassed(SolarSystem solarSys)
+    public void dayPassed(SolarSystem solarSys)
     {
         if(didPlanetOrbit()){
             daysPassed = 0;
@@ -38,7 +73,19 @@ public class Planet extends SpaceBody{
 
         double daysPassedDbl = daysPassed;
         double daysToOrbitSunDbl = daysToOrbitSun;
+        angle = daysPassedDbl / daysToOrbitSunDbl * 360;
 
-        solarSys.drawSolarObject(distance, daysPassedDbl / daysToOrbitSunDbl * 360, getDiameter(), getColour());
+
+        solarSys.drawSolarObject(distance, angle, getDiameter(), getColour());
+    }
+
+    public double getAngle()
+    {
+        return angle;
+    }
+
+    public void setAngle(double angle)
+    {
+        this.angle = angle;
     }
 }
