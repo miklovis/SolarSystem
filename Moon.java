@@ -1,8 +1,9 @@
 import java.util.Random;
 
 public class Moon extends SpaceBody{
-    double centreOfRotationDistance, maxAngle;
-    int planetIndex;
+    private double centreOfRotationDistance;
+    private double maxAngle;
+    private int planetIndex;
 
     Random rand = new Random();
 
