@@ -41,10 +41,10 @@ public class Driver {
         systemPlanets[1] = new Planet(ss, distanceToVenus, 225, 20, "YELLOW");
         systemPlanets[2] = new Planet(ss, distanceToEarth, 365, 25, "BLUE");
         systemPlanets[3] = new Planet(ss, distanceToMars, 687, 20, "RED");
-        systemPlanets[4] = new Planet(ss, distanceToJupiter, 4333, 70, "ORANGE");
-        systemPlanets[5] = new Planet(ss, distanceToSaturn, 10759, 100, "YELLOW");
-        systemPlanets[6] = new Planet(ss, distanceToUranus, 30687, 40, "CYAN");
-        systemPlanets[7] = new Planet(ss, distanceToNeptune, 60190, 25, "BLUE");  
+        systemPlanets[4] = new Planet(ss, distanceToJupiter, 4333, 55, "ORANGE");
+        systemPlanets[5] = new Planet(ss, distanceToSaturn, 10759, 80, "YELLOW");
+        systemPlanets[6] = new Planet(ss, distanceToUranus, 30687, 30, "CYAN");
+        systemPlanets[7] = new Planet(ss, distanceToNeptune, 60190, 20, "BLUE");  
     }
 
     public static void createMoons(){
